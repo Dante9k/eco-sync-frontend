@@ -1,0 +1,6 @@
+.container { background: #171b22; border: 1px solid var(--color-border); border-radius: 9px; overflow: hidden; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.heading > div { min-width: 0; }
+.heading h2 { font-size: 14px; font-weight: 500; }
+.heading code { display: block; color: var(--color-muted); font: 10px var(--font-mono); margin-top: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.heading button { font-size: 12px; flex-shrink: 0; }

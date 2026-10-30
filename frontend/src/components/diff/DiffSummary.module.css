@@ -1,0 +1,7 @@
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+.summary > div { display: flex; align-items: center; gap: 10px; padding: 18px 20px; border: 1px solid; border-radius: 8px; font-size: 12px; }
+.summary strong { margin-left: auto; font: 25px var(--font-mono); }
+.added { color: #7cd9a1; background: #22c55e08; border-color: #22c55e30 !important; }
+.updated { color: #e4bd77; background: #f59e0b08; border-color: #f59e0b30 !important; }
+.removed { color: #ed9c9c; background: #ef444408; border-color: #ef444430 !important; }
+@media (max-width: 768px) { .summary { grid-template-columns: 1fr; gap: 8px; } .summary > div { padding: 12px 18px; } .summary strong { font-size: 22px; } }

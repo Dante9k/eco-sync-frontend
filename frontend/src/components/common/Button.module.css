@@ -1,0 +1,8 @@
+.button { min-height: 38px; padding: 8px 14px; border: 1px solid var(--color-border); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background .15s, border-color .15s; }
+.primary { background: #2563eb; color: white; border-color: #5c97f8; box-shadow: 0 2px 5px #0003, inset 0 1px #ffffff1a; }
+.primary:hover:not(:disabled) { background: #2e6ae2; }
+.secondary { background: #1c2029; color: var(--color-text); }
+.secondary:hover:not(:disabled) { background: #252b36; border-color: #465166; }
+.ghost { color: #9cc0ff; background: transparent; border-color: transparent; }
+.ghost:hover:not(:disabled) { background: #3b82f612; }
+.button:disabled { cursor: not-allowed; opacity: .45; }

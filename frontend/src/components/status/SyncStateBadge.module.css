@@ -1,0 +1,4 @@
+.dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; display: inline-block; }
+.pulse { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; box-shadow: 0 0 0 3px #3b82f61a; } }
+@media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }

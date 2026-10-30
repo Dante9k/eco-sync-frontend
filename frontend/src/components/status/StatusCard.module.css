@@ -1,0 +1,25 @@
+.card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; box-shadow: 0 4px 18px #0000000d; overflow: hidden; }
+.heading { padding: 20px 24px; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid #272d37; }
+.heading h2 { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 550; }
+.heading h2 svg { color: #a0b5d2; }
+.heading > span:last-child { margin-left: auto; }
+.pipeline { color: var(--color-muted); font-size: 10px; display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.pipeline span { color: #758398; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); padding: 25px 0; }
+.metric { padding: 0 25px; }
+.metric + .metric { border-left: 1px solid var(--color-border); }
+.metricTop { display: flex; justify-content: space-between; align-items: center; color: #b6c0cf; font-size: 12px; }
+.metricIcon { color: #8aa9d5; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #343e4e; border-radius: 7px; background: #212936; }
+.value { color: #ecf0f7; font: 35px var(--font-mono); letter-spacing: -1.4px; margin: 9px 0 15px; font-weight: 500; }
+.value > span { font: 11px var(--font-ui); color: var(--color-muted); margin-left: 10px; }
+.pending .value { color: #e9bd6b; }
+.pending .metricIcon { color: #d6af68; background: #30291e; border-color: #4b3c27; }
+.target .metricIcon { color: #81b4ac; background: #202d2e; border-color: #304341; }
+.metricBottom { display: flex; justify-content: space-between; gap: 6px; color: var(--color-muted); font-size: 10px; }
+.code { font: 8px var(--font-mono); letter-spacing: 1.1px; color: #97a3b6; }
+.error { padding: 0 22px 12px; }
+.error p { color: var(--color-muted); font-size: 11px; }
+.progress { display: flex; align-items: center; gap: 14px; padding: 0 24px 20px; font-size: 12px; color: #9dc2ff; }
+.progress progress { flex: 1; height: 5px; accent-color: #3b82f6; }
+@media (max-width: 1100px) { .code { display: none; } }
+@media (max-width: 768px) { .metrics { grid-template-columns: 1fr; padding: 0; } .metric { padding: 20px; } .metric + .metric { border-left: 0; border-top: 1px solid var(--color-border); } .heading { padding: 18px 20px; gap: 10px; } .pipeline { display: none; } .value { margin: 4px 0 12px; } .code { display: block; } }

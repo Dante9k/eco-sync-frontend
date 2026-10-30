@@ -1,0 +1,5 @@
+.skeleton { padding: 22px; display: grid; gap: 18px; }
+.skeleton div { background: #252b35; border-radius: 6px; height: 42px; animation: pulse 1.5s ease-in-out infinite alternate; }
+.skeleton div:last-child { width: 68%; }
+@keyframes pulse { to { opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .skeleton div { animation: none; } }
