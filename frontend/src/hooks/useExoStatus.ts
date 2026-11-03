@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { getStatus } from '../api/eco';
-import { useEco } from '../state/EcoContext';
+import { getStatus } from '../api/exo';
+import { useExo } from '../state/ExoContext';
 import { toUserMessage } from '../utils/format';
 import { useInterval } from './useInterval';
 import { useLatestRequest } from './useLatestRequest';
 import { usePageVisibility } from './usePageVisibility';
 
-export function useEcoStatus() {
-  const { state, dispatch } = useEco();
+export function useExoStatus() {
+  const { state, dispatch } = useExo();
   const { run, pending } = useLatestRequest();
   const visible = usePageVisibility();
   const wasVisible = useRef(visible);

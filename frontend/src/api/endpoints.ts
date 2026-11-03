@@ -1,6 +1,9 @@
 export const endpoints = {
-  status: '/api/eco/status',
-  sync: '/api/eco/sync',
-  history: '/api/eco/history',
-  diff: (runId: string) => `/api/eco/diff/${encodeURIComponent(runId)}`,
+  status: '/api/exo/status',
+  sync: '/api/exo/sync',
+  history: '/api/exo/history',
+  config: '/api/exo/config',
+  logs: '/api/exo/logs',
+  run: (runId: string) => `/api/exo/runs/${encodeURIComponent(runId)}`,
+  diff: (runId: string) => `/api/exo/diff/${encodeURIComponent(runId)}`,
 } as const;

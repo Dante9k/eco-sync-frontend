@@ -1,15 +1,14 @@
 import type { PropsWithChildren, ReactNode } from 'react';
-import type { SyncState } from '../../api/types';
+import type { IntegrationMode, SyncState } from '../../api/types';
 import { Header } from './Header';
 import { Icon } from '../common/Icon';
 import styles from './AppShell.module.css';
-export function AppShell({ children, toolbar, state, unavailable, lastFetched }: PropsWithChildren<{ toolbar?: ReactNode; state?: SyncState; unavailable?: boolean; lastFetched?: string }>) {
-  return <div className={styles.shell}><a href="#main-content" className={styles.skip}>跳至主要内容</a><Header state={state} unavailable={unavailable}/>
+export function AppShell({ children, toolbar, state, unavailable, lastFetched, mode }: PropsWithChildren<{ toolbar?: ReactNode; state?: SyncState; unavailable?: boolean; lastFetched?: string; lastSync?: string; mode?: IntegrationMode }>) {
+  return <div className={styles.shell}><a href="#main-content" className={styles.skip}>跳至主要内容</a><Header state={state} unavailable={unavailable} mode={mode}/>
     <main id="main-content" className={styles.main}>
-      <div className={styles.breadcrumb}><Icon name="layers" size={14}/><span>工作空间</span><span>/</span><span>ECO 数据同步</span></div>
-      <div className={styles.titleRow}><div><div className={styles.eyebrow}>SYNC OPERATIONS</div><h1>数据同步<span className={styles.label}>ECO</span></h1><p>连接每一次变更，让数据始终保持一致。</p></div>{toolbar}</div>
-      {children}
-      <footer className={styles.footer}><span><Icon name="layers" size={13}/>ECO Sync <span className={styles.footerDivider}>/</span> 数据同步系统</span><span>{lastFetched ? `数据更新于 ${lastFetched}` : '等待服务连接'}<span className={styles.footerDivider}>·</span>仅展示脱敏字段</span></footer>
+      <div className={styles.titleRow}><div><div className={styles.eyebrow}><span/>你的数据，井然有序</div><h1>同步工作台</h1><p>同步进展、预警提醒与每一次变化，都在这里。</p></div>{toolbar}</div>
+      <div className={styles.content}>{children}</div>
+      <footer className={styles.footer}><span><Icon name="layers" size={14}/><strong>EXO Sync</strong><span>让数据流转，让工作简单。</span></span><span>{lastFetched ? '页面更新于 ' + lastFetched : '正在连接工作空间'}<span className={styles.footerDivider}>·</span>同步结果自动保存</span></footer>
     </main>
   </div>;
 }

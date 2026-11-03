@@ -1,8 +1,8 @@
-import type { EcoStatus, HistoryQuery, SyncRunDiff, SyncRunPage, TriggerResult } from '../api/types';
+import type { ExoStatus, HistoryQuery, SyncRunDiff, SyncRunPage, TriggerResult } from '../api/types';
 export type ActiveTab = 'history' | 'diff';
-export type EcoAction =
+export type ExoAction =
   | { type: 'STATUS_LOADING' }
-  | { type: 'STATUS_OK'; payload: EcoStatus; fetchedAt: number }
+  | { type: 'STATUS_OK'; payload: ExoStatus; fetchedAt: number }
   | { type: 'STATUS_ERR'; payload: string }
   | { type: 'TRIGGER_START' }
   | { type: 'TRIGGER_OK'; payload: TriggerResult }
@@ -19,7 +19,7 @@ export type EcoAction =
   | { type: 'SET_TAB'; payload: ActiveTab }
   | { type: 'TOGGLE_AUTO_REFRESH' };
 export const actions = {
-  selectRun: (runId: string | null): EcoAction => ({ type: 'SELECT_RUN', payload: runId }),
-  historyQuery: (query: Partial<HistoryQuery>): EcoAction => ({ type: 'HISTORY_QUERY', payload: query }),
-  setTab: (tab: ActiveTab): EcoAction => ({ type: 'SET_TAB', payload: tab }),
+  selectRun: (runId: string | null): ExoAction => ({ type: 'SELECT_RUN', payload: runId }),
+  historyQuery: (query: Partial<HistoryQuery>): ExoAction => ({ type: 'HISTORY_QUERY', payload: query }),
+  setTab: (tab: ActiveTab): ExoAction => ({ type: 'SET_TAB', payload: tab }),
 };

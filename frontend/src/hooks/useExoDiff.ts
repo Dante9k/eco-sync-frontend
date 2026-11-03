@@ -1,13 +1,13 @@
 import { useCallback, useEffect } from 'react';
-import { getDiff } from '../api/eco';
-import { useEco } from '../state/EcoContext';
+import { getDiff } from '../api/exo';
+import { useExo } from '../state/ExoContext';
 import { actions } from '../state/actions';
 import { toUserMessage } from '../utils/format';
 import { useLatestRequest } from './useLatestRequest';
 
 export const DIFF_PAGE_SIZE = 20;
-export function useEcoDiff() {
-  const { state, dispatch } = useEco();
+export function useExoDiff() {
+  const { state, dispatch } = useExo();
   const { run, cancel } = useLatestRequest();
   const { selectedRunId, diffPage, activeTab } = state;
   const refresh = useCallback(() => {

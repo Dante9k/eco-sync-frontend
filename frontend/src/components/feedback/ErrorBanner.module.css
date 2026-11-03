@@ -1,4 +1,4 @@
-.error { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: #ffabab; background: #ef44440b; border: 1px solid #ef44442e; border-radius: 7px; font-size: 12px; line-height: 1.7; margin: 12px 0; }
+.error { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: var(--color-danger-text); background: #ef44440b; border: 1px solid #ef44442e; border-radius: 7px; font-size: 12px; line-height: 1.7; margin: 12px 0; }
 .error > svg { flex-shrink: 0; }
 .error > span { flex: 1; overflow-wrap: anywhere; }
-.error button { color: #ffc2c2; flex-shrink: 0; }
+.error button { color: var(--color-danger-text); flex-shrink: 0; }

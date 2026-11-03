@@ -1,22 +1,3 @@
-.list { padding: 22px; }
-.group + .group { margin-top: 28px; }
-.group h3 { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 400; }
-.group h3 > span:last-child { color: var(--color-muted); font-size: 11px; }
-.record { border: 1px solid #343b48; border-left-width: 2px; border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
-.added { border-left-color: #54b580; }.updated { border-left-color: #c59a51; }.removed { border-left-color: #c46e6e; }
-.record header { display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; background: #1e242d; }
-.record code { font: 12px var(--font-mono); overflow-wrap: anywhere; min-width: 0; }
-.record header > span { color: var(--color-muted); font-size: 10px; flex-shrink: 0; }
-.columnLabels, .field { display: grid; grid-template-columns: 22% 39% 39%; }
-.columnLabels { padding: 9px 0; font-size: 10px; color: var(--color-muted); border-top: 1px solid var(--color-border); }
-.columnLabels span { padding: 0 14px; }
-.field { border-top: 1px solid var(--color-border); font: 12px/1.8 var(--font-mono); }
-.field > * { padding: 12px 14px; min-width: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
-.name { color: #b6c0ce; font-family: var(--font-ui); }
-.before { background: #ef444406; color: #dfb1b1; border-left: 1px solid #343b48; }
-.after { background: #22c55e06; color: #afd4bb; border-left: 1px solid #343b48; }
-.missing { color: #9aa3b2; font-size: 11px; font-family: var(--font-ui); }
-.expand { display: inline; background: none; color: #9ac0ff; border: 0; margin-left: 8px; cursor: pointer; font-size: 11px; padding: 3px; }
-.noFields { padding: 16px; color: var(--color-muted); font-size: 12px; }
-.mobileLabel { display: none; }
-@media (max-width: 768px) { .list { padding: 14px; } .columnLabels { display: none; } .field { display: block; } .field > * { display: block; border-left: 0; } .field .name { padding-bottom: 7px; } .mobileLabel { display: block; font-size: 10px; color: #9aa3b2; margin-bottom: 5px; } .record header { flex-wrap: wrap; } }
+.list{padding:4px 24px 24px}.group+.group{margin-top:24px}.group h3{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-weight:400}.group h3>span:last-child{color:var(--color-muted);font-size:11px}.record{border:1px solid var(--color-border);border-left-width:3px;border-radius:10px;overflow:hidden;margin-bottom:10px}.added{border-left-color:var(--color-success)}.updated{border-left-color:var(--color-warning)}.removed{border-left-color:var(--color-danger)}.record summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;background:var(--color-subtle);cursor:pointer}.record summary::-webkit-details-marker{display:none}.record code{font:12px var(--font-mono);overflow-wrap:anywhere;min-width:0}.record summary>span{display:flex;align-items:center;gap:12px;color:var(--color-muted);font-size:11px;flex-shrink:0}.record[open] summary svg{transform:rotate(90deg)}
+.columnLabels,.field{display:grid;grid-template-columns:24% 38% 38%}.single .columnLabels,.single .field{grid-template-columns:32% 68%}.columnLabels{padding:10px 0;color:var(--color-muted);font-size:11px;border-top:1px solid var(--color-border)}.columnLabels span{padding:0 18px}.field{border-top:1px solid var(--color-border);font-size:13px;line-height:1.8}.field>*{padding:13px 18px;min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}.name{color:var(--color-muted)}.before{background:#ef444405;color:var(--color-danger-text);border-left:1px solid var(--color-border)}.after{background:#22c55e05;color:var(--color-success-text);border-left:1px solid var(--color-border)}.missing{color:var(--color-muted);font-size:12px}.expand{display:inline;background:none;color:var(--color-primary);border:0;margin-left:8px;cursor:pointer;font-size:12px;padding:4px}.noFields{padding:16px;color:var(--color-muted);font-size:12px}.mobileLabel{display:none}
+@media(max-width:768px){.list{padding:4px 18px 18px}.columnLabels{display:none}.field,.single .field{display:block}.field>*{display:block;border-left:0;padding:10px 14px}.field .name{padding-bottom:5px;font-size:12px}.mobileLabel{display:block;font-size:11px;color:var(--color-muted);margin-bottom:4px}.single .mobileLabel{display:none}.record summary{padding:14px}.group h3{gap:8px}.group h3>span:last-child{font-size:10px}}

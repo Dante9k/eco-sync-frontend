@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { getHistory } from '../api/eco';
+import { getHistory } from '../api/exo';
 import type { HistoryQuery } from '../api/types';
-import { useEco } from '../state/EcoContext';
+import { useExo } from '../state/ExoContext';
 import { actions } from '../state/actions';
 import { toUserMessage } from '../utils/format';
 import { useLatestRequest } from './useLatestRequest';
 
-export function useEcoHistory() {
-  const { state, dispatch } = useEco();
+export function useExoHistory() {
+  const { state, dispatch } = useExo();
   const { run, cancel } = useLatestRequest();
   const query = state.historyQuery;
   const refresh = useCallback(() => {
@@ -17,7 +17,7 @@ export function useEcoHistory() {
       error => dispatch({ type: 'HISTORY_ERR', payload: toUserMessage(error) }));
   }, [query, dispatch, run]);
   useEffect(() => { void refresh(); return cancel; }, [refresh, cancel]);
-  const statusKey = state.status ? `${state.status.state}:${state.status.lastSyncAt}` : null;
+  const statusKey = state.status ? `${state.status.state}:${state.status.lastSyncAt}:${state.status.latestRun?.notificationState}` : null;
   const previous = useRef<string | null>(null);
   useEffect(() => {
     if (previous.current !== null && statusKey !== previous.current) void refresh();

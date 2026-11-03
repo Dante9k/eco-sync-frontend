@@ -1,6 +1,4 @@
-.modal { width: min(460px, calc(100% - 32px)); padding: 0; color: var(--color-text); background: #1a1e26; border: 1px solid #384153; border-radius: 12px; box-shadow: 0 24px 100px #0008; }
-.modal::backdrop { background: #03060bbd; backdrop-filter: blur(4px); }
-.heading { display: flex; justify-content: space-between; align-items: center; padding: 20px 20px 0 24px; }
-.heading h2 { font-size: 18px; }
-.content { padding: 16px 24px 28px; line-height: 1.9; color: var(--color-muted); font-size: 14px; }
-.footer { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 24px; border-top: 1px solid var(--color-border); }
+.modal { border:1px solid var(--color-border); border-radius:18px; width:min(560px,calc(100% - 32px)); max-height:calc(100dvh - 48px); padding:0; background:var(--color-surface); color:var(--color-text); box-shadow:0 24px 100px #142c2340; }.modal[open]{display:flex;flex-direction:column}.modal::backdrop{background:#142c2366;backdrop-filter:blur(4px)}
+.heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px 18px;border-bottom:1px solid var(--color-border);flex-shrink:0}.heading h2{font-size:19px;margin:0;font-weight:650}.heading button{min-height:32px;padding:6px}
+.content{padding:24px 26px;overflow-y:auto;min-height:0}.footer{padding:18px 26px;display:flex;justify-content:flex-end;align-items:center;gap:10px;border-top:1px solid var(--color-border);background:var(--color-subtle);flex-shrink:0}.footer button{font-size:13px}
+@media(max-width:480px){.modal{max-height:calc(100dvh - 24px);width:calc(100% - 24px);border-radius:14px}.heading,.content,.footer{padding:18px}.heading h2{font-size:18px}.footer{gap:8px}.footer button{padding:10px 14px}}

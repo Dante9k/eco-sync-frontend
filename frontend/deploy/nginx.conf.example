@@ -1,5 +1,5 @@
 # Include in your HTTPS server block. Set root to the built frontend/dist directory.
-root /srv/eco/frontend/dist;
+root /srv/exo/frontend/dist;
 index index.html;
 add_header Content-Security-Policy "default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'" always;
 add_header X-Content-Type-Options nosniff always;

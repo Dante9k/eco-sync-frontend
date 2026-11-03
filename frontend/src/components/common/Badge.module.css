@@ -1,6 +1,6 @@
-.badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid; border-radius: 5px; padding: 4px 8px; line-height: 1.2; font-size: 11px; font-weight: 500; white-space: nowrap; }
-.neutral { background: #9aa3b210; color: #b5bdc9; border-color: #9aa3b225; }
-.success { background: #22c55e0d; color: #6adc98; border-color: #22c55e25; }
-.info { background: #3b82f610; color: #8cb8ff; border-color: #3b82f630; }
-.danger { background: #ef444410; color: #ff9494; border-color: #ef444430; }
-.warning { background: #f59e0b10; color: #efbe68; border-color: #f59e0b30; }
+.badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; border-radius: 6px; padding: 4px 8px; line-height: 1.4; font-size: 11px; font-weight: 500; white-space: nowrap; }
+.neutral { background: var(--color-raised); color: var(--color-muted); }
+.success { background: var(--color-accent-soft); color: var(--color-success-text); }
+.info { background: #4696a010; color: var(--color-info-text); }
+.danger { background: #d6524510; color: var(--color-danger-text); }
+.warning { background: var(--color-warning-soft); color: var(--color-warning-text); }

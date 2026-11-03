@@ -1,8 +1,8 @@
-import type { EcoStatus, HistoryQuery, SyncRunDiff, SyncRunPage } from '../api/types';
-import type { ActiveTab, EcoAction } from './actions';
+import type { ExoStatus, HistoryQuery, SyncRunDiff, SyncRunPage } from '../api/types';
+import type { ActiveTab, ExoAction } from './actions';
 
-export interface EcoState {
-  status: EcoStatus | null;
+export interface ExoState {
+  status: ExoStatus | null;
   statusLoading: boolean;
   statusError: string | null;
   triggering: boolean;
@@ -21,7 +21,7 @@ export interface EcoState {
   autoRefresh: boolean;
   lastFetchedAt: number | null;
 }
-export const initialState: EcoState = {
+export const initialState: ExoState = {
   status: null, statusLoading: true, statusError: null,
   triggering: false, triggerError: null, activeRunId: null,
   history: null, historyLoading: true, historyError: null,
@@ -29,7 +29,7 @@ export const initialState: EcoState = {
   selectedRunId: null, diff: null, diffLoading: false, diffError: null, diffPage: 1,
   activeTab: 'history', autoRefresh: true, lastFetchedAt: null,
 };
-export function ecoReducer(state: EcoState, action: EcoAction): EcoState {
+export function exoReducer(state: ExoState, action: ExoAction): ExoState {
   switch (action.type) {
     case 'STATUS_LOADING': return { ...state, statusLoading: true, statusError: null };
     case 'STATUS_OK': return { ...state, status: action.payload, statusLoading: false, statusError: null, lastFetchedAt: action.fetchedAt, activeRunId: action.payload.state === 'syncing' ? state.activeRunId : null, triggerError: state.status?.state === 'syncing' && action.payload.state !== 'syncing' ? null : state.triggerError };

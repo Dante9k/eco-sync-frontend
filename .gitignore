@@ -6,3 +6,7 @@ dist/
 *.log
 artifacts/
 .pnpm-store/
+.local/
+__pycache__/
+*.pyc
+.pytest_cache/

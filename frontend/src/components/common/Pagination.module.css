@@ -1,5 +1,5 @@
 .pagination { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 22px; border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: 12px; }
-.pagination strong { color: #c7ced9; font-weight: 500; }
+.pagination strong { color: var(--color-text); font-weight: 500; }
 .controls { display: flex; gap: 9px; align-items: center; }
 .controls button { min-height: 29px; padding: 6px 7px; }
 .current { color: var(--color-text); font-family: var(--font-mono); font-size: 11px; padding: 0 4px; }

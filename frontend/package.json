@@ -1,11 +1,12 @@
 {
-  "name": "eco-sync-console",
+  "name": "exo-sync-console",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "demo": "node scripts/demo-server.mjs",
+    "backend": "node scripts/backend.mjs",
+    "demo": "node scripts/backend.mjs --demo",
     "dev:demo": "node scripts/dev-demo.mjs",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",

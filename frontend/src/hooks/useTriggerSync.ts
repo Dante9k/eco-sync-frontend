@@ -1,15 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { triggerSync } from '../api/eco';
+import { triggerSync } from '../api/exo';
 import { ApiError } from '../api/client';
-import { useEco } from '../state/EcoContext';
+import { useExo } from '../state/ExoContext';
 import { selectCanTrigger } from '../state/selectors';
 import { toUserMessage } from '../utils/format';
 import { useLatestRequest } from './useLatestRequest';
 
 export function useTriggerSync(onRefresh: () => void) {
-  const { state, dispatch } = useEco();
+  const { state, dispatch } = useExo();
   const { run } = useLatestRequest();
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Shanghai' }).format(new Date()));
+  const [yearInput, setYearInput] = useState(String(currentYear));
+  const year = Number(yearInput);
+  const validYear = /^\d{4}$/.test(yearInput) && Number.isInteger(year) && year >= 1970 && year <= currentYear;
   const locked = useRef(false);
   useEffect(() => () => {
     if (locked.current) {
@@ -19,11 +23,11 @@ export function useTriggerSync(onRefresh: () => void) {
   }, [dispatch]);
   const canTrigger = selectCanTrigger(state);
   const trigger = useCallback(async () => {
-    if (locked.current || !canTrigger) return;
+    if (locked.current || !canTrigger || !validYear) return;
     locked.current = true;
     setConfirmOpen(false);
     dispatch({ type: 'TRIGGER_START' });
-    await run(triggerSync,
+    await run(signal => triggerSync(year, signal),
       payload => { dispatch({ type: 'TRIGGER_OK', payload }); onRefresh(); },
       error => {
         let message = toUserMessage(error);
@@ -33,6 +37,6 @@ export function useTriggerSync(onRefresh: () => void) {
         onRefresh();
       });
     locked.current = false;
-  }, [canTrigger, dispatch, run, onRefresh]);
-  return { confirmOpen, request: () => { if (canTrigger) setConfirmOpen(true); }, close: () => setConfirmOpen(false), trigger, canTrigger };
+  }, [canTrigger, validYear, year, dispatch, run, onRefresh]);
+  return { confirmOpen, yearInput, setYearInput, validYear, currentYear, request: () => { if (canTrigger) setConfirmOpen(true); }, close: () => setConfirmOpen(false), trigger, canTrigger };
 }
