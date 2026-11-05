@@ -86,3 +86,31 @@ export interface OperationLog {
 }
 export interface LogPage { items: OperationLog[]; page: number; pageSize: number; total: number }
 export interface LogQuery extends PageQuery { level: '' | 'INFO' | 'DEBUG' | 'ERROR'; category: '' | 'config' | 'sync' | 'notification' | 'schedule' }
+
+export interface PersonRef { id: string; name: string }
+export interface BoardPerson extends PersonRef { department: string; recordCount: number }
+export interface BoardDirectory { items: BoardPerson[]; mode: IntegrationMode; updatedAt: string }
+export interface BoardRecord {
+  recordId: string; number: string; type: string; reason: string; content: string;
+  startedAt: string | null; durationDays: number | null; closedAt: string | null; status: string;
+  impacts: string[]; regions: string[]; creator: PersonRef | null; creatorDepartment: string;
+  relatedFileNumbers: string[];
+  taskSummary: { total: number; completed: number; matched: number; latestUpdatedAt: string | null };
+  matchedRoles: Array<'creator' | 'primary' | 'secondary'>;
+  relatedFileStartedAt: string | null; relatedFileClosedAt: string | null;
+}
+export interface BoardQuery extends PageQuery { personId: string; search: string; status: 'all' | 'open' | 'closed' }
+export interface BoardRecordPage {
+  items: BoardRecord[]; page: number; pageSize: number; total: number;
+  stats: { total: number; open: number; closed: number }; mode: IntegrationMode; updatedAt: string;
+}
+
+export interface BoardTask {
+  taskId: string; taskNumber: string; taskPrimaryOwner: PersonRef | null; taskSecondaryOwners: PersonRef[];
+  taskStatus: string; taskStartedAt: string | null; taskUpdatedAt: string | null;
+}
+export interface BoardTaskQuery extends PageQuery { personId: string; scope: 'related' | 'all' }
+export interface BoardTaskPage {
+  recordId: string; items: BoardTask[]; total: number; page: number; pageSize: number;
+  mode: IntegrationMode; updatedAt: string;
+}

@@ -1,6 +1,9 @@
 import type { CSSProperties } from 'react';
-export type IconName = 'sync' | 'database' | 'target' | 'clock' | 'arrow' | 'chevronLeft' | 'chevronRight' | 'check' | 'alert' | 'close' | 'history' | 'diff' | 'plus' | 'minus' | 'edit' | 'layers' | 'activity' | 'external' | 'pause' | 'bell' | 'shield' | 'settings' | 'sun' | 'moon' | 'help' | 'calendar' | 'notification';
+export type IconName = 'users' | 'search' | 'table' | 'sync' | 'database' | 'target' | 'clock' | 'arrow' | 'chevronLeft' | 'chevronRight' | 'check' | 'alert' | 'close' | 'history' | 'diff' | 'plus' | 'minus' | 'edit' | 'layers' | 'activity' | 'external' | 'pause' | 'bell' | 'shield' | 'settings' | 'sun' | 'moon' | 'help' | 'calendar' | 'notification';
 const paths: Record<IconName, React.ReactNode> = {
+  users: <><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 4v3"/></>,
+  search: <><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></>,
+  table: <><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11M15 9v11"/></>,
   notification: <><path d="m21 3-6 18-4-8-8-4Z M11 13 21 3"/></>,
   bell: <><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></>,
   shield: <><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-5"/></>,

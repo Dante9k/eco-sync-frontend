@@ -9,7 +9,7 @@ a { color: inherit; }
 button, summary, select { touch-action: manipulation; }
 input, select, textarea { accent-color: var(--color-primary); }
 :focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
-::selection { background: #b8d6ba; color: #173822; }
+::selection { background: var(--color-selection-bg); color: var(--color-selection-text); }
 svg { flex-shrink: 0; }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }

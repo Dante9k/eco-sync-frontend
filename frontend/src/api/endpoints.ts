@@ -1,4 +1,6 @@
 export const endpoints = {
+  boardPeople: '/api/exo/board/people',
+  boardRecords: '/api/exo/board/records',
   status: '/api/exo/status',
   sync: '/api/exo/sync',
   history: '/api/exo/history',

@@ -1,5 +1,17 @@
-.guide { scroll-margin-top:24px; padding:26px 28px; border:1px solid var(--color-border); background:var(--color-subtle); border-radius:16px; }
-.heading { display:flex; align-items:center; gap:12px; }.heading>span { color:var(--color-primary); }.heading h2 { font-size:15px; margin:0; }.heading p { font-size:12px; color:var(--color-muted); margin:2px 0 0; }
-.steps { list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; padding:0; margin:24px 0; }.steps li { display:flex; gap:12px; }.steps li>span { font:500 15px var(--font-mono); color:var(--color-primary); padding-top:2px; }.steps h3 { font-size:13px; margin:0 0 6px; }.steps p { font-size:12px; color:var(--color-muted); margin:0; line-height:1.9; }
-.faq { border-top:1px solid var(--color-border); padding-top:15px; }.faq summary { display:flex; justify-content:space-between; gap:12px; cursor:pointer; font-size:12px; list-style:none; }.faq summary::-webkit-details-marker { display:none; }.faq[open] summary svg { transform:rotate(90deg); }.faq p { color:var(--color-muted); font-size:12px; margin:12px 0 0; line-height:1.9; }.faq strong { color:var(--color-text); }
-@media(max-width:768px){.guide{padding:22px 18px}.steps{grid-template-columns:1fr;gap:20px}.steps p{font-size:13px}.faq summary{font-size:13px}}
+.guide { min-width:0; }
+.intro { color:var(--color-muted); font-size:12px; line-height:1.9; margin-bottom:22px; }
+.guide section + section { border-top:1px solid var(--color-border); padding-top:20px; margin-top:22px; }
+.guide h3 { display:flex; align-items:center; gap:9px; font-size:14px; font-weight:600; }
+.guide h3 svg { color:var(--color-primary); }
+.steps { list-style:none; display:grid; gap:17px; padding:0; margin:18px 0 22px; }
+.steps li { display:flex; gap:12px; align-items:flex-start; }
+.steps li > span { display:grid; place-items:center; flex-shrink:0; width:26px; height:26px; border-radius:6px; font:500 10px var(--font-mono); color:var(--color-primary); background:var(--color-accent-soft); }
+.steps h4 { font-size:13px; font-weight:550; margin:1px 0 4px; }
+.steps p { font-size:12px; color:var(--color-muted); margin:0; line-height:1.9; }
+.faq { border-top:1px solid var(--color-border); padding:14px 0; }
+.faq summary { display:flex; justify-content:space-between; align-items:center; gap:12px; cursor:pointer; font-size:12px; list-style:none; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq[open] summary svg { transform:rotate(90deg); }
+.faq p { color:var(--color-muted); font-size:12px; margin:10px 0 0; line-height:1.9; }
+.faq strong { color:var(--color-text); }
+@media(max-width:768px) { .steps p,.faq summary,.faq p { font-size:13px; } }

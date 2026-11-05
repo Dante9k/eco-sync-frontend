@@ -164,3 +164,20 @@ python -m backend --adapter-factory your_integration:create_adapters
 | 中 | 当前需要手工启动后端；无服务托管、健康监测及自动备份恢复演练 | 部署为受监督服务，增加存活/调度延迟监测、完整数据目录备份和恢复演练；网页关闭与后端停机需区分 |
 
 本轮验证：34 项后端测试、22 项前端测试、TypeScript 检查和生产构建全部通过。页面已验证日历配置保存与刷新恢复、提醒边界与重叠校验、375px 弹窗布局及一次完整演示同步；最终页面无控制台错误。具体上线保证必须在真实适配器和部署环境中再次验收。
+
+## 人员看板读取接口
+
+看板读模型位于 `backend/board.py`；虚构数据仅位于 `backend/demo_board.py`，不参与同步或多维表格写入。真实模式目前返回 `409 BOARD_NOT_READY`，后续在此读模型接入实际业务数据。
+
+| 方法与路径 | 参数 | 返回数据 |
+| --- | --- | --- |
+| GET `/api/exo/board/people` | 无 | `{items:[{id,name,department,recordCount}],mode,updatedAt}`，完整人员名单 |
+| GET `/api/exo/board/records` | `personId,search,status,page,pageSize` | `{items,total,page,pageSize,stats:{total,open,closed},mode,updatedAt}` |
+
+所有看板接口沿用 ApiResult 响应外壳。人员使用不透明 ID 精确匹配，记录数按编号去重。主列表匹配创建者或任意任务的主、次负责人后再分页，搜索同时支持业务内容、编号、任务编号和文件号；状态统计区分业务状态与任务状态。
+
+任务读取接口：GET /api/exo/board/records/:recordId/tasks，参数 personId、scope（related/all）、page、pageSize。返回 recordId、items、total、page、pageSize、mode、updatedAt。默认 related：创建者查看该业务的全部任务，其他人员查看其参与的任务；all 查看全部任务。任务分页独立于业务分页，编号作为不透明 ID 使用。
+
+BoardRecord 包含 15 个公共字段、recordId、taskSummary 和 matchedRoles，不包含任务列表；BoardTask 包含 6 个任务字段和稳定 taskId。字段契约位于 frontend/src/api/types.ts。时间采用 UTC ISO8601，前端按北京时间显示。模拟读模型预计算名单计数、参与人员集合、搜索文本和汇总；真实数据接入时应由持久化读模型提供分页与索引。
+
+测试覆盖多任务跨角色去重、创建者与参与者范围、父子独立分页、按子任务编号搜索、公共响应边界、无效参数和真实模式隔离。示例数据只用于页面演示，不参与多维表格写入。

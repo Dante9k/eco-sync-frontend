@@ -14,7 +14,6 @@ import { formatDate, formatToday } from '../utils/format';
 import { ConfigurationPanels, AdvancedSettings } from '../components/config/ConfigurationPanels';
 import { ConfigurationModal } from '../components/config/ConfigurationModal';
 import { OperationLogs } from '../components/logs/OperationLogs';
-import { UsageGuide } from '../components/layout/UsageGuide';
 import formStyles from '../components/config/ConfigurationModal.module.css';
 
 export function DashboardPage() {
@@ -31,7 +30,6 @@ export function DashboardPage() {
     <Tabs active={state.activeTab} onChange={setTab} total={state.history?.total}>
       {state.activeTab === 'history' ? <HistoryTable page={state.history} query={state.historyQuery} loading={state.historyLoading} error={state.historyError} onSelectRun={viewRun} onQueryChange={history.changeQuery} onRetry={history.refresh} runActions={runActions}/> : <DiffViewer runId={state.selectedRunId} run={selectedRun} diff={state.diff} loading={state.diffLoading} error={state.diffError} onRetry={() => { void diff.refresh(); }} onBack={() => setTab('history')} page={state.diffPage} pageSize={DIFF_PAGE_SIZE} onPageChange={diff.changePage}/>}
     </Tabs>
-    <UsageGuide/>
     <OperationLogs controller={logs} onSelectRun={viewRun}/>
     <AdvancedSettings controller={config} ready={!!state.status?.ready}/>
     <ConfigurationModal controller={config}/>

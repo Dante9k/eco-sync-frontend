@@ -1,9 +1,10 @@
 .button { min-height: 42px; padding: 10px 17px; border: 1px solid var(--color-border); border-radius: 9px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 550; line-height: 1.4; cursor: pointer; white-space: nowrap; transition: background .16s, border-color .16s, transform .16s; }
-.primary { background: var(--color-primary); color: #fff; border-color: var(--color-primary); box-shadow: 0 3px 6px #19563912; }
+.primary { background: var(--color-primary); color: var(--color-primary-contrast); border-color: var(--color-primary); box-shadow: var(--shadow-card); }
 .primary:hover:not(:disabled) { background: var(--color-primary-hover); border-color: var(--color-primary-hover); transform: translateY(-1px); }
 .secondary { background: var(--color-surface); color: var(--color-text); }
 .secondary:hover:not(:disabled) { background: var(--color-subtle); border-color: var(--color-muted); }
 .ghost { color: var(--color-primary); background: transparent; border-color: transparent; }
 .ghost:hover:not(:disabled) { background: var(--color-accent-soft); }
 .button:disabled { cursor: not-allowed; opacity: .5; }
-:global([data-theme='dark']) .primary { color: #102e1b; }
+
+:global(:root) .button { border-radius:7px; font-weight:500; }

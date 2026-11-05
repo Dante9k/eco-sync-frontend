@@ -5,6 +5,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from .adapters import AdapterRegistry
+from .board import BoardReader
 from .models import Fault, public_error
 from .storage import InstanceLock, Store
 from .modules.config_manager import ConfigManager
@@ -27,7 +28,8 @@ class Application:
                 self.logs.record('config.migrated', config_version=self.config.snapshot()['version'])
             self.service = SyncService(self.store, self.config, self.registry, self.logs)
             self.scheduler = Scheduler(self.store, self.config, self.service, self.logs)
-            self.api = PanelAPI(self.config, self.service, self.scheduler, self.logs)
+            self.board = BoardReader(self.config)
+            self.api = PanelAPI(self.config, self.service, self.scheduler, self.logs, self.board)
         except BaseException:
             if hasattr(self, 'store'):
                 self.store.close()

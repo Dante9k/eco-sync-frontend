@@ -16,3 +16,23 @@
 @media (max-width: 768px) { .main { padding: 27px 20px 0; } .content { display: grid; gap: 28px; min-width: 0; }
 .titleRow { flex-wrap: wrap; gap: 20px; margin-bottom: 22px; } .titleRow h1 { font-size: 28px; } .footer { flex-direction: column; gap: 9px; } }
 @media (max-width: 420px) { .main { padding: 25px 16px 0; } .footer { font-size: 10px; } }
+
+.compact .main { max-width:1800px; padding:16px 24px 24px; }
+.compact .titleRow { align-items:center; gap:12px; margin-bottom:14px; flex-wrap:nowrap; }
+.compact .titleRow h1 { font-size:21px; letter-spacing:-.4px; white-space:nowrap; }
+.compact .content { gap:0; }
+@media(max-width:768px) { .compact .main { padding:12px; } .compact .titleRow { margin-bottom:12px; gap:8px; } .compact .titleRow h1 { font-size:18px; } }
+
+:global(:root) .compact .main { padding:22px 28px 24px; }
+:global(:root) .compact .titleRow { margin-bottom:19px; }
+:global(:root) .compact .titleRow h1 { font-size:24px; font-weight:600; letter-spacing:-.5px; }
+@media(min-width:1001px) {
+  :global(:root) .shell { padding-left:88px; }
+  :global(:root) .compact .main { padding-top:27px; }
+  :global(:root) .compact .titleRow { margin-bottom:23px; }
+}
+@media(max-width:768px) {
+  :global(:root) .compact .main { padding:16px 12px; }
+  :global(:root) .compact .titleRow { margin-bottom:14px; }
+  :global(:root) .compact .titleRow h1 { font-size:20px; }
+}

@@ -5,8 +5,9 @@ from ..models import Fault
 
 
 class PanelAPI:
-    def __init__(self, config, service, scheduler, logs):
+    def __init__(self, config, service, scheduler, logs, board):
         self.config, self.service, self.scheduler, self.logs = config, service, scheduler, logs
+        self.board = board
 
     def handle(self, method, url, body=None):
         parsed = urlsplit(url)
@@ -26,6 +27,13 @@ class PanelAPI:
             except ValueError:
                 raise Fault('INVALID_PAGINATION', '分页参数无效，pageSize 上限为 100。') from None
         if method == 'GET':
+            if path == '/api/exo/board/people':
+                return self.board.directory()
+            if path == '/api/exo/board/records':
+                return self.board.page(*pagination(), param('personId'), param('search'), param('status', 'all'))
+            task_match = re.fullmatch(r'/api/exo/board/records/([^/]+)/tasks', path)
+            if task_match:
+                return self.board.tasks(unquote(task_match[1]), *pagination(), param('personId'), param('scope', 'related'))
             if path == '/api/exo/config':
                 return self.config.snapshot()
             if path == '/api/exo/status':
